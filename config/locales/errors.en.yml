@@ -1,0 +1,4 @@
+en:
+  errors:
+    lead_workflows:
+      no_more_resumable: The workflow does not meet conditions to be resumed

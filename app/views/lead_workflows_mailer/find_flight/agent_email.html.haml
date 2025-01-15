@@ -1,0 +1,24 @@
+%table.container{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0"}
+  %tr
+    %td.typography.typography
+      Your
+      %strong
+        FIND FLIGHT
+      = @lead.contact_fullname
+      |
+      = [@lead.departure, @lead.arrival].join(' - ')
+      | has been unattended. This need to get fixed immediately.
+
+  %tr
+    %td{height: 24}
+
+  %tr
+    %td
+      = render('partials/link_btn', { url: @lead_url, title: 'View this Lead' })
+
+  %tr
+    %td{height: 24}
+
+  %tr
+    %td.typography
+      Thank you!

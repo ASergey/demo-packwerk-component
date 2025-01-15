@@ -1,0 +1,9 @@
+- email_to_customer:
+    subject: Hello %{contact_firstname}
+    template_path: lead_workflows_mailer/domestic
+    template_name: customer_email
+
+- if:
+    lead_returning?: false
+  delay: PT0M
+  unassign_contact_owner:

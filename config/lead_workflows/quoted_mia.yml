@@ -1,0 +1,37 @@
+- delay: P3D
+  assign_label_to_lead:
+    label: 'Quoted (MIA)'
+
+- delay: P1D
+  email_to_customer:
+    subject: Did you receive the quotes? | %{contact_firstname}
+    template_path: lead_workflows_mailer/quoted_mia
+    template_name: email_1
+
+- delay: P1D
+  email_to_customer:
+    subject: Cannot reach you! | %{contact_firstname}
+    template_path: lead_workflows_mailer/quoted_mia
+    template_name: email_2
+
+- delay: P1D
+  email_to_customer:
+    subject: Should I stay or should I go?
+    template_path: lead_workflows_mailer/quoted_mia
+    template_name: email_3
+
+- if:
+    - lead_returning?: false # AND
+    - lead_was_quoted_mia?: false
+    - lead_most_recent?: true
+  delay: P1D
+  assign_label_to_lead:
+    label: 'Bonus leads'
+
+- if:
+    lead_returning?: true # OR
+    lead_was_quoted_mia?: true
+    lead_most_recent?: false
+  delay: P1D
+  assign_label_to_lead:
+    label: 'No Response'

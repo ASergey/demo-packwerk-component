@@ -1,0 +1,26 @@
+- assign_label_to_lead:
+    label: 'Attempt to contact 1'
+
+- delay: P1D
+  assign_label_to_lead:
+    label: 'Attempt to contact 2'
+
+- delay: P1D
+  assign_label_to_lead:
+    label: 'Attempt to contact 3'
+
+- if:
+    - lead_returning?: false
+    - lead_recycled?: false
+  delay: P10D
+  mark_recycled:
+  assign_label_to_lead:
+    label: 'Recycled'
+  unassign_contact_owner:
+
+- if:
+    lead_returning?: true
+    lead_recycled?: true
+  delay: P10D
+  assign_label_to_lead:
+    label: 'No Response'

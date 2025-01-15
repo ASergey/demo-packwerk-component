@@ -1,0 +1,3 @@
+- if:
+    lead_returning?: false
+  unassign_contact_owner:

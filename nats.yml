@@ -1,0 +1,10 @@
+streams:
+  - name: lead_workflows
+    sources:
+      - name: calls
+      - name: commissions
+      - name: contacts
+      - name: leads
+      - name: quotes
+      - name: sequences
+    max_age: 604800000000000 # 7 days in nanoseconds

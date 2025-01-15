@@ -1,0 +1,21 @@
+- stop_sequences_enrolled:
+  email_to_customer:
+    subject: I cannot reach you! | %{contact_firstname} | TopBusinessClass
+    template_path: lead_workflows_mailer/bad_number
+    template_name: email_1
+
+- delay: P1D
+  email_to_customer:
+    subject: Trying to reach you!
+    template_path: lead_workflows_mailer/bad_number
+    template_name: email_2
+
+- delay: P2D
+  email_to_customer:
+    subject: Where do we go from here?
+    template_path: lead_workflows_mailer/bad_number
+    template_name: email_3
+
+- delay: P2D
+  assign_label_to_lead:
+    label: 'Plans Changed'

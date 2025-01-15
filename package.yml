@@ -1,0 +1,7 @@
+enforce_dependencies: true
+
+dependencies:
+- .
+- components/events
+- components/shared
+

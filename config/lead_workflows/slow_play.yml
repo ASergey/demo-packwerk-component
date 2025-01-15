@@ -1,0 +1,27 @@
+- delay: P1D
+  email_to_customer:
+    subject: '%{arrival_city} Flight'
+    template_path: lead_workflows_mailer/slow_play
+    template_name: email_1
+
+- delay: P7D
+  email_to_customer:
+    subject: Your Flight to %{arrival_city} | %{contact_firstname} | TopBusinessClass
+    template_path: lead_workflows_mailer/slow_play
+    template_name: email_2
+
+- delay: P7D
+  email_to_customer:
+    subject: Upcoming Flight to %{arrival_city}
+    template_path: lead_workflows_mailer/slow_play
+    template_name: email_3
+
+- delay: P1D
+  email_to_agent:
+    subject: Slow Play | %{contact_fullname} %{lead_from} - %{lead_to} | is done
+    template_path: lead_workflows_mailer/slow_play
+    template_name: agent_email
+
+- delay: P2D
+  assign_label_to_lead:
+    label: 'Plans Changed'

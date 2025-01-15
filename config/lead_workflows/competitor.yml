@@ -1,0 +1,9 @@
+- email_to_customer:
+    subject: Yes, but you can still save!
+    template_path: lead_workflows_mailer/competitor
+    template_name: customer_email
+
+- if:
+    lead_returning?: false
+  delay: PT0M
+  unassign_contact_owner:

@@ -1,0 +1,9 @@
+- delay: P1D
+  email_to_customer:
+    subject: Almost Done
+    template_path: lead_workflows_mailer/find_flight
+    template_name: customer_email
+  email_to_agent:
+    subject: "Urgent: %{contact_fullname} | %{lead_from} - %{lead_to} | Needs Attention"
+    template_path: lead_workflows_mailer/find_flight
+    template_name: agent_email

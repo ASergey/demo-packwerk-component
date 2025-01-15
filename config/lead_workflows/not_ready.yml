@@ -1,0 +1,47 @@
+- delay: PT30M
+
+- delay_before_departure: P300D
+  email_to_customer:
+    subject: Your Discounted International Business Class Flights
+    template_path: lead_workflows_mailer/not_ready
+    template_name: 300_days_before_departure
+
+- delay_before_departure: P295D
+  email_to_customer:
+    subject: Your Upcoming Flight to %{arrival_city}
+    template_path: lead_workflows_mailer/not_ready
+    template_name: 295_days_before_departure
+
+- delay_before_departure: P180D
+  email_to_customer:
+    subject: Your Upcoming Flight to %{arrival_city}
+    template_path: lead_workflows_mailer/not_ready
+    template_name: 180_days_before_departure
+
+- delay_before_departure: P60D
+  email_to_customer:
+    subject: Upcoming Flight to %{arrival_city}
+    template_path: lead_workflows_mailer/not_ready
+    template_name: 60_days_before_departure
+
+- delay_before_departure: P30D
+  email_to_customer:
+    subject: Are you still going to %{arrival_city}
+    template_path: lead_workflows_mailer/not_ready
+    template_name: 30_days_before_departure
+
+- delay_before_departure: P15D
+  email_to_customer:
+    subject: Relax, it's not too late to save
+    template_path: lead_workflows_mailer/not_ready
+    template_name: 15_days_before_departure
+  email_to_agent:
+    subject: "Not Ready (E) | %{contact_fullname} | %{lead_from} - %{lead_to} | Done"
+    template_path: lead_workflows_mailer/not_ready
+    template_name: agent_email
+
+- if:
+  - lead_returning?: false
+  delay: P2D
+  assign_label_to_lead:
+    label: 'Plans Changed'

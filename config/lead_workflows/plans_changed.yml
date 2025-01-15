@@ -1,0 +1,9 @@
+- email_to_customer:
+    subject: 'Important Update: Your Travel Plans'
+    template_path: lead_workflows_mailer/plans_changed
+    template_name: customer_email
+
+- if:
+    lead_returning?: false
+  delay: PT0M
+  unassign_contact_owner:

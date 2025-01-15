@@ -1,0 +1,15 @@
+- if:
+  - lead_returning?: false
+  - lead_recycled?: false
+  delay: P1D
+  mark_recycled:
+  assign_label_to_lead:
+    label: 'Recycled'
+  unassign_contact_owner:
+
+- if:
+    lead_returning?: true
+    lead_recycled?: true
+  delay: P1D
+  assign_label_to_lead:
+    label: 'No Response'
